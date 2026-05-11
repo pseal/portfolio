@@ -497,6 +497,84 @@ section {
   font-weight: 500;
 }
 
+/* ── CONTACT FORM ── */
+.contact-form-wrap {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.form-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.form-row { display: flex; gap: 14px; margin-bottom: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.form-group.full { flex: 1 1 100%; }
+
+.form-group label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 11px 14px;
+  color: white;
+  font-family: var(--sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  resize: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent2);
+  background: rgba(255,255,255,0.09);
+}
+
+.btn-send {
+  width: 100%; margin-top: 6px;
+  padding: 13px;
+  background: var(--accent2);
+  color: white;
+  border: none; border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-send:hover { background: #b5762e; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200,135,58,0.35); }
+.btn-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.form-status {
+  margin-top: 12px;
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+.form-status.success { color: #86efac; }
+.form-status.error   { color: #fca5a5; }
+
 /* ── FOOTER ── */
 footer {
   background: var(--ink);
@@ -534,17 +612,28 @@ footer {
   section { padding: 70px 24px; }
 
   #about {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: flex; flex-direction: column;
+    gap: 48px; padding: 70px 24px;
   }
 
+  .about-text, .about-sidebar { width: 100%; }
+
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .contact-form-wrap { width: 100%; }
 }
 
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .projects-grid { grid-template-columns: 1fr; }
   .lang-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Hide flags on mobile */
+  .lang-flag { display: none; }
+  .lang-card { padding: 12px 10px; }
+  /* Stack contact grid */
+  .contact-grid { display: flex; flex-direction: column; gap: 32px; }
+  /* Contact form full width */
+  .contact-form-wrap { width: 100%; }
 }
 </style>
 </head>
@@ -657,7 +746,35 @@ footer {
 
     <!-- Bong Eats Finland -->
     <div class="project-card fade-up">
-      <div class="project-thumb thumb-food">🍛</div>
+      <div class="project-thumb thumb-food">
+    <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+      <!-- Steam wisps -->
+      <path d="M44 28 Q42 22 44 16 Q46 10 44 4" stroke="rgba(255,200,120,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M60 24 Q58 18 60 12 Q62 6 60 0" stroke="rgba(255,200,120,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M76 28 Q74 22 76 16 Q78 10 76 4" stroke="rgba(255,200,120,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Bowl shadow -->
+      <ellipse cx="60" cy="100" rx="38" ry="6" fill="rgba(0,0,0,0.25)"/>
+      <!-- Bowl body -->
+      <path d="M22 62 Q22 98 60 98 Q98 98 98 62 Z" fill="#c0392b"/>
+      <!-- Bowl rim -->
+      <ellipse cx="60" cy="62" rx="38" ry="10" fill="#e74c3c"/>
+      <!-- Rice/curry surface -->
+      <ellipse cx="60" cy="62" rx="34" ry="8" fill="#f5e6c8"/>
+      <!-- Curry spots -->
+      <ellipse cx="52" cy="61" rx="10" ry="5" fill="#e67e22" opacity="0.85"/>
+      <ellipse cx="70" cy="63" rx="8" ry="4" fill="#d35400" opacity="0.75"/>
+      <!-- Garnish dots (mustard seeds) -->
+      <circle cx="48" cy="60" r="2" fill="#2c3e50"/>
+      <circle cx="55" cy="63" r="1.5" fill="#2c3e50"/>
+      <circle cx="65" cy="60" r="2" fill="#2c3e50"/>
+      <circle cx="73" cy="62" r="1.5" fill="#2c3e50"/>
+      <!-- Coriander leaf suggestion -->
+      <ellipse cx="60" cy="59" rx="5" ry="2.5" fill="#27ae60" opacity="0.9" transform="rotate(-20 60 59)"/>
+      <ellipse cx="63" cy="61" rx="4" ry="2" fill="#2ecc71" opacity="0.8" transform="rotate(15 63 61)"/>
+      <!-- Spice rim decoration -->
+      <ellipse cx="60" cy="62" rx="34" ry="8" fill="none" stroke="#c0392b" stroke-width="1.5" opacity="0.6"/>
+    </svg>
+  </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="tag">HTML</span>
@@ -806,31 +923,61 @@ footer {
   </div>
 
   <div class="contact-grid">
-    <div class="contact-text fade-up">
-      "Open to freelance projects, collaborations, and junior developer opportunities — let's build something together."
+    <div class="fade-up">
+      <div class="contact-text" style="margin-bottom:32px;">
+        "Open to freelance projects, collaborations, and junior developer opportunities — let's build something together."
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/pseal" target="_blank" class="contact-link">
+          <div class="contact-link-icon">⌥</div>
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/pseal</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/prasenjit-seal-b1101a23" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">Prasenjit Seal</div>
+          </div>
+        </a>
+        <a href="https://waa-brown.vercel.app/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">🌤</div>
+          <div>
+            <div class="contact-link-label">Featured Project</div>
+            <div class="contact-link-value">Weather Anytime Anywhere</div>
+          </div>
+        </a>
+      </div>
     </div>
-    <div class="contact-links fade-up">
-      <a href="https://github.com/pseal" target="_blank" class="contact-link">
-        <div class="contact-link-icon">⌥</div>
-        <div>
-          <div class="contact-link-label">GitHub</div>
-          <div class="contact-link-value">github.com/pseal</div>
+
+    <div class="contact-form-wrap fade-up">
+      <div class="form-title">Send me a message</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">Name</label>
+          <input type="text" id="fname" placeholder="Your name" required />
         </div>
-      </a>
-      <a href="https://www.linkedin.com/in/prasenjit-seal-b1101a23" target="_blank" class="contact-link">
-        <div class="contact-link-icon">in</div>
-        <div>
-          <div class="contact-link-label">LinkedIn</div>
-          <div class="contact-link-value">Prasenjit Seal</div>
+        <div class="form-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" placeholder="your@email.com" required />
         </div>
-      </a>
-      <a href="https://waa-brown.vercel.app/" target="_blank" class="contact-link">
-        <div class="contact-link-icon">🌤</div>
-        <div>
-          <div class="contact-link-label">Featured Project</div>
-          <div class="contact-link-value">Weather Anytime Anywhere</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="fsubject">Subject</label>
+          <input type="text" id="fsubject" placeholder="What's this about?" />
         </div>
-      </a>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" rows="5" placeholder="Your message..."></textarea>
+        </div>
+      </div>
+      <button class="btn-send" id="sendBtn" onclick="sendMessage()">Send Message →</button>
+      <div class="form-status" id="formStatus"></div>
     </div>
   </div>
 </section>
@@ -852,6 +999,56 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+// ── CONTACT FORM via Formspree ──────────────────────────────────────────
+async function sendMessage() {
+  const btn    = document.getElementById("sendBtn");
+  const status = document.getElementById("formStatus");
+  const name   = document.getElementById("fname").value.trim();
+  const email  = document.getElementById("femail").value.trim();
+  const subject= document.getElementById("fsubject").value.trim();
+  const message= document.getElementById("fmessage").value.trim();
+
+  if (!name || !email || !message) {
+    status.textContent = "Please fill in name, email and message.";
+    status.className = "form-status error";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+  status.textContent = "";
+  status.className = "form-status";
+
+  try {
+    // Using Formspree — free, no backend needed
+    // Replace YOUR_FORM_ID below after signing up at formspree.io
+    const res = await fetch("https://formspree.io/f/xlgzabbv", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ name, email, subject, message, _replyto: email })
+    });
+
+    if (res.ok) {
+      status.textContent = "✓ Message sent! I'll get back to you soon.";
+      status.className = "form-status success";
+      document.getElementById("fname").value = "";
+      document.getElementById("femail").value = "";
+      document.getElementById("fsubject").value = "";
+      document.getElementById("fmessage").value = "";
+      btn.textContent = "Send Message →";
+      btn.disabled = false;
+    } else {
+      throw new Error("Server error");
+    }
+  } catch {
+    // Fallback: open mailto link
+    const mailto = `mailto:seal.prasenjit@gmail.com?subject=${encodeURIComponent(subject || "Portfolio Contact")}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+    window.location.href = mailto;
+    btn.textContent = "Send Message →";
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>

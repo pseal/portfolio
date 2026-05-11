@@ -359,6 +359,10 @@ section {
 
 /* ── ABOUT ── */
 #about {
+  padding: 100px 60px;
+}
+
+.about-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -586,6 +590,74 @@ footer {
   letter-spacing: 0.08em;
 }
 
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--accent); border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed; top: 60px; left: 0; right: 0;
+  background: rgba(245,243,238,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  flex-direction: column;
+  padding: 16px 24px 20px;
+  z-index: 99; gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--mono); font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--accent); }
+
+/* ── SCROLL ARROW (bounce down) ── */
+.scroll-arrow {
+  position: absolute; bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  text-decoration: none; z-index: 5;
+  animation: arrowBounce 2s ease-in-out infinite;
+}
+.scroll-arrow span {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-arrow svg { color: var(--accent2); }
+@keyframes arrowBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── BACK TO TOP ── */
+#backTop {
+  position: fixed; bottom: 28px; right: 24px; z-index: 200;
+  width: 44px; height: 44px;
+  background: var(--accent); color: white;
+  border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(26,58,92,0.3);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+#backTop.visible { opacity: 1; pointer-events: all; }
+#backTop:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,58,92,0.4); }
+
 /* ── ANIMATIONS ── */
 .fade-up {
   opacity: 0;
@@ -611,9 +683,11 @@ footer {
 
   section { padding: 70px 24px; }
 
-  #about {
+  #about { padding: 70px 24px; }
+
+  .about-inner {
     display: flex; flex-direction: column;
-    gap: 48px; padding: 70px 24px;
+    gap: 48px;
   }
 
   .about-text, .about-sidebar { width: 100%; }
@@ -625,6 +699,7 @@ footer {
 
 @media (max-width: 600px) {
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   .projects-grid { grid-template-columns: 1fr; }
   .lang-grid { grid-template-columns: repeat(2, 1fr); }
   /* Hide flags on mobile */
@@ -647,6 +722,16 @@ footer {
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <!-- Hamburger for mobile -->
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->
@@ -847,69 +932,71 @@ footer {
 </section>
 
 <!-- ── ABOUT ── -->
-<section id="about">
+<section id="about" style="background:var(--light);">
   <div class="section-header fade-up">
     <span class="section-num">02</span>
     <h2 class="section-title">About Me</h2>
   </div>
 
-  <div class="about-text fade-up">
-    <p>
-      I am a <strong>web development enthusiast</strong> who enjoys creating clean, practical,
-      and user-friendly digital experiences. I work mainly with HTML and CSS for front-end
-      development and use SQL and Python for data handling, automation, and improving workflows.
-    </p>
-    <p>
-      I like turning ideas and complex requirements into simple, functional solutions,
-      and I am comfortable working both independently and as part of a team.
-    </p>
-    <p>
-      Before moving into web development, I spent <strong>over 20 years in academic research</strong>,
-      working in molecular modeling, chemical kinetics, and reaction mechanisms. That background
-      shaped my problem-solving mindset and attention to detail, which I now bring into
-      my development work.
-    </p>
+  <div class="about-inner">
+    <div class="about-text fade-up">
+      <p>
+        I am a <strong>web development enthusiast</strong> who enjoys creating clean, practical,
+        and user-friendly digital experiences. I work mainly with HTML and CSS for front-end
+        development and use SQL and Python for data handling, automation, and improving workflows.
+      </p>
+      <p>
+        I like turning ideas and complex requirements into simple, functional solutions,
+        and I am comfortable working both independently and as part of a team.
+      </p>
+      <p>
+        Before moving into web development, I spent <strong>over 20 years in academic research</strong>,
+        working in molecular modeling, chemical kinetics, and reaction mechanisms. That background
+        shaped my problem-solving mindset and attention to detail, which I now bring into
+        my development work.
+      </p>
 
-    <div class="lang-grid">
-      <div class="lang-card">
-        <div class="lang-flag">🇬🇧</div>
-        <div class="lang-name">English</div>
-        <div class="lang-level">Fluent</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-flag">🇮🇳</div>
-        <div class="lang-name">Hindi</div>
-        <div class="lang-level">Fluent</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-flag">🇧🇩</div>
-        <div class="lang-name">Bengali</div>
-        <div class="lang-level">Native</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-flag">🇫🇮</div>
-        <div class="lang-name">Suomi</div>
-        <div class="lang-level">A1.2 — Learning</div>
+      <div class="lang-grid" style="margin-top:28px;">
+        <div class="lang-card">
+          <div class="lang-flag">🇬🇧</div>
+          <div class="lang-name">English</div>
+          <div class="lang-level">Fluent</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">🇮🇳</div>
+          <div class="lang-name">Hindi</div>
+          <div class="lang-level">Fluent</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">🇧🇩</div>
+          <div class="lang-name">Bengali</div>
+          <div class="lang-level">Native</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">🇫🇮</div>
+          <div class="lang-name">Suomi</div>
+          <div class="lang-level">A1.2 — Learning</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="about-sidebar fade-up">
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="tl-year">2024 – Present</div>
-        <div class="tl-title">Web Developer (Self-directed)</div>
-        <div class="tl-desc">Building real-world projects with HTML, CSS, JavaScript, Django. Deployed on Vercel &amp; GitHub Pages.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">Career Transition</div>
-        <div class="tl-title">Pivoting into Tech</div>
-        <div class="tl-desc">Applying 20+ years of analytical research discipline to software development and data workflows.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2000 – 2023</div>
-        <div class="tl-title">Academic Researcher</div>
-        <div class="tl-desc">Molecular modeling, chemical kinetics, and reaction mechanisms. Published research, collaborative leadership, HPC software.</div>
+    <div class="about-sidebar fade-up">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-year">2024 – Present</div>
+          <div class="tl-title">Web Developer (Self-directed)</div>
+          <div class="tl-desc">Building real-world projects with HTML, CSS, JavaScript, Django. Deployed on Vercel &amp; GitHub Pages.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-year">Career Transition</div>
+          <div class="tl-title">Pivoting into Tech</div>
+          <div class="tl-desc">Applying 20+ years of analytical research discipline to software development and data workflows.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-year">2000 – 2023</div>
+          <div class="tl-title">Academic Researcher</div>
+          <div class="tl-desc">Molecular modeling, chemical kinetics, and reaction mechanisms. Published research, collaborative leadership, HPC software.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1000,6 +1087,25 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
+// ── BACK TO TOP visibility ────────────────────────────────────────────────
+const backBtn = document.getElementById("backTop");
+window.addEventListener("scroll", () => {
+  backBtn.classList.toggle("visible", window.scrollY > 400);
+});
+
+// ── HAMBURGER menu ───────────────────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+// Close mobile menu on outside click
+document.addEventListener("click", e => {
+  const menu = document.getElementById("mobileMenu");
+  const btn   = document.getElementById("hamburger");
+  if (menu.classList.contains("open") && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
+
 // ── CONTACT FORM via Formspree ──────────────────────────────────────────
 async function sendMessage() {
   const btn    = document.getElementById("sendBtn");
@@ -1023,7 +1129,7 @@ async function sendMessage() {
   try {
     // Using Formspree — free, no backend needed
     // Replace YOUR_FORM_ID below after signing up at formspree.io
-    const res = await fetch("https://formspree.io/f/xlgzabbv", {
+    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({ name, email, subject, message, _replyto: email })

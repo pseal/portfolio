@@ -295,6 +295,7 @@ section {
 .thumb-counter  { background: linear-gradient(135deg, #0a1a0a 0%, #1a5c1a 100%); }
 .thumb-coming   { background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); }
 .thumb-quiz     { background: linear-gradient(135deg, #0d1f0d 0%, #1a5c3a 100%); }
+.thumb-neon     { background: linear-gradient(135deg, #0d0020 0%, #1a0040 50%, #0d0030 100%); }
 
 .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 
@@ -847,10 +848,10 @@ footer {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Live Demo
           </a>
-          <!--<a href="https://github.com/pseal/WAA" target="_blank" class="proj-link">
+          <a href="https://github.com/pseal/WAA" target="_blank" class="proj-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             GitHub
-          </a>-->
+          </a>
         </div>
       </div>
     </div>
@@ -927,10 +928,10 @@ footer {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Live Demo
           </a>
-          <!--<a href="https://github.com/pseal/countometer" target="_blank" class="proj-link">
+          <a href="https://github.com/pseal/countometer" target="_blank" class="proj-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             GitHub
-          </a>-->
+          </a>
         </div>
       </div>
     </div>
@@ -974,6 +975,63 @@ footer {
         </p>
         <div class="project-links">
           <a href="https://suomi-quiz.vercel.app/" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neon Match Memory Game -->
+    <div class="project-card fade-up">
+      <div class="project-thumb thumb-neon">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Glow background -->
+          <radialGradient id="ng" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#0d0020" stop-opacity="0"/>
+          </radialGradient>
+          <circle cx="60" cy="60" r="55" fill="url(#ng)"/>
+          <!-- Card grid 2x2 -->
+          <!-- Card 1 - flipped (shows symbol) -->
+          <rect x="14" y="18" width="40" height="38" rx="6" fill="#1e0050" stroke="#a855f7" stroke-width="1.5"/>
+          <text x="34" y="44" font-size="22" text-anchor="middle" fill="#e879f9">⚡</text>
+          <!-- Card 2 - flipped (matched pair) -->
+          <rect x="66" y="18" width="40" height="38" rx="6" fill="#1e0050" stroke="#a855f7" stroke-width="1.5"/>
+          <text x="86" y="44" font-size="22" text-anchor="middle" fill="#e879f9">⚡</text>
+          <!-- Match glow on pair -->
+          <rect x="65" y="17" width="42" height="40" rx="7" fill="none" stroke="#f0abfc" stroke-width="2" opacity="0.5"/>
+          <rect x="13" y="17" width="42" height="40" rx="7" fill="none" stroke="#f0abfc" stroke-width="2" opacity="0.5"/>
+          <!-- Card 3 - face down -->
+          <rect x="14" y="64" width="40" height="38" rx="6" fill="#12003a" stroke="#6d28d9" stroke-width="1.5"/>
+          <line x1="24" y1="74" x2="44" y2="74" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="24" y1="82" x2="54" y2="82" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="24" y1="90" x2="44" y2="90" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Card 4 - face down -->
+          <rect x="66" y="64" width="40" height="38" rx="6" fill="#12003a" stroke="#6d28d9" stroke-width="1.5"/>
+          <line x1="76" y1="74" x2="96" y2="74" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="76" y1="82" x2="106" y2="82" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="76" y1="90" x2="96" y2="90" stroke="#4c1d95" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Neon scanline -->
+          <line x1="10" y1="60" x2="110" y2="60" stroke="#a855f7" stroke-width="0.5" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Game</span>
+        </div>
+        <div class="project-name">Neon Match: Legacy</div>
+        <p class="project-desc">
+          A retro-futuristic memory card matching game with a neon cyberpunk aesthetic.
+          Three difficulty levels (Easy, Mid, Hard), live move counter and timer,
+          and smooth card-flip animations — all built in vanilla JavaScript with
+          zero dependencies.
+        </p>
+        <div class="project-links">
+          <a href="https://memory-game-tau-coral.vercel.app/" target="_blank" class="proj-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Live Demo
           </a>
@@ -1030,18 +1088,22 @@ footer {
 
       <div class="lang-grid" style="margin-top:28px;">
         <div class="lang-card">
+          <div class="lang-flag">🇬🇧</div>
           <div class="lang-name">English</div>
           <div class="lang-level">Fluent</div>
         </div>
         <div class="lang-card">
+          <div class="lang-flag">🇮🇳</div>
           <div class="lang-name">Hindi</div>
           <div class="lang-level">Fluent</div>
         </div>
         <div class="lang-card">
+          <div class="lang-flag">🇧🇩</div>
           <div class="lang-name">Bengali</div>
           <div class="lang-level">Native</div>
         </div>
         <div class="lang-card">
+          <div class="lang-flag">🇫🇮</div>
           <div class="lang-name">Suomi</div>
           <div class="lang-level">A1.2 — Learning</div>
         </div>

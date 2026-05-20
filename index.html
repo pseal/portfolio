@@ -1127,6 +1127,86 @@ footer {
       </div>
     </div>
 
+    <!-- Puzzle Gallery -->
+    <div class="project-card fade-up">
+      <div class="project-thumb thumb-puzzle">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pgGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#92700a"/>
+              <stop offset="100%" stop-color="#3d2e00"/>
+            </linearGradient>
+          </defs>
+          <!-- Background -->
+          <rect width="120" height="120" fill="url(#pgGold)"/>
+
+          <!-- 3x3 puzzle grid centred, one piece missing (bottom-right) -->
+          <!-- Pieces: each 26x26 with 3px gap, grid starts at x=16, y=16 -->
+
+          <!-- Row 1 -->
+          <rect x="16" y="16" width="26" height="26" rx="3" fill="rgba(255,210,80,0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="46" y="16" width="26" height="26" rx="3" fill="rgba(255,195,50,0.8)"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="76" y="16" width="26" height="26" rx="3" fill="rgba(255,215,90,0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+          <!-- Row 2 -->
+          <rect x="16" y="46" width="26" height="26" rx="3" fill="rgba(255,200,60,0.8)"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="46" y="46" width="26" height="26" rx="3" fill="rgba(255,220,100,0.9)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="76" y="46" width="26" height="26" rx="3" fill="rgba(255,205,70,0.8)"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+          <!-- Row 3 -->
+          <rect x="16" y="76" width="26" height="26" rx="3" fill="rgba(255,210,80,0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="46" y="76" width="26" height="26" rx="3" fill="rgba(255,195,55,0.8)"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- Missing piece (bottom-right) — empty slot -->
+          <rect x="76" y="76" width="26" height="26" rx="3" fill="rgba(0,0,0,0.35)" stroke="rgba(255,210,80,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+          <!-- Subtle image lines across filled pieces (suggest a picture) -->
+          <line x1="16" y1="32" x2="102" y2="32" stroke="rgba(180,130,0,0.25)" stroke-width="1"/>
+          <line x1="16" y1="62" x2="102" y2="62" stroke="rgba(180,130,0,0.25)" stroke-width="1"/>
+          <line x1="32" y1="16" x2="32" y2="102" stroke="rgba(180,130,0,0.25)" stroke-width="1"/>
+          <line x1="62" y1="16" x2="62" y2="102" stroke="rgba(180,130,0,0.25)" stroke-width="1"/>
+
+          <!-- Floating missing piece (being dragged in) -->
+          <rect x="82" y="80" width="26" height="26" rx="3"
+                fill="rgba(255,225,110,0.95)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"
+                transform="rotate(-8 95 93)"/>
+          <!-- Arrow suggesting drag -->
+          <path d="M80 74 L77 80" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"
+                fill="none" stroke-linecap="round" marker-end="url(#arr)"/>
+
+          <!-- Timer badge -->
+          <rect x="68" y="100" width="44" height="16" rx="8" fill="rgba(0,0,0,0.5)"/>
+          <text x="90" y="112" font-family="monospace" font-size="8" fill="rgba(255,210,80,0.9)"
+                text-anchor="middle">⏱ 6.0s</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Game</span>
+          <span class="tag">Drag &amp; Drop</span>
+        </div>
+        <div class="project-name">Puzzle Gallery</div>
+        <p class="project-desc">
+          A drag-and-drop image puzzle game with multiple curated sets and 15 levels
+          per run. Study a preview image, then reassemble the scrambled pieces by
+          dragging them into the grid — pieces snap when close enough. Tracks best
+          times per level and supports infinite replays.
+        </p>
+        <div class="project-links">
+          <a href="https://puzzle-game-gold-one.vercel.app/" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/pseal/puzzle-game" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- BAFIN – Coming Soon -->
     <div class="project-card fade-up">
       <div class="project-thumb thumb-coming">🔒</div>

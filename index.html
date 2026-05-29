@@ -297,6 +297,7 @@ section {
 .thumb-quiz     { background: linear-gradient(135deg, #0d1f0d 0%, #1a5c3a 100%); }
 .thumb-neon     { background: linear-gradient(135deg, #0d0020 0%, #1a0040 50%, #0d0030 100%); }
 .thumb-travel   { background: linear-gradient(135deg, #001a2e 0%, #003d6b 60%, #005f8a 100%); }
+.thumb-full     { background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); }
 
 .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 
@@ -1299,19 +1300,43 @@ footer {
   </div>
 </div>
 
-    <div class="project-card">
-      <div class="project-meta">
-        <span class="project-year">[2026]</span>
-        <span class="project-tech">Python / Django / SQL / Render</span>
+    <!-- Full-Stack Multi-User Task Manager -->
+    <div class="project-card fade-up">
+      <a href="https://django-task-manager-w0a8.onrender.com" target="_blank" class="thumb-link">
+      <div class="project-thumb-thumb-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;">
+          <path d="M4 6l8-4 8 4-8 4-8-4z" />
+          <path d="M4 11l8 4 8-4" opacity="0.7"/>
+          <path d="M4 16l8 4 8-4" />
+          <circle cx="12" cy="11" r="1" fill="currentColor"/>
+        </svg>
       </div>
-      <h3 class="project-title">Full-Stack Multi-User Task Manager</h3>
-      <p class="project-desc">
-        A robust task-tracking system built to transition away from static frontends into dynamic server-driven environments. Features secure registration, hashed password authentication, and strict row-level data isolation using relational SQL Foreign Keys.
-      </p>
-      <div class="project-links">
-        <a href="https://github.com/pseal/django-task-manager" target="_blank" rel="noopener noreferrer" class="text-link">Code Repository ↗</a>
-        <a href="https://django-task-manager-w0a8.onrender.com" target="_blank" rel="noopener noreferrer" class="text-link">Live Platform ↗</a>
-      </div>
+      </a>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">Django</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">Render</span>
+        </div>
+          <div class="project-name">Full-Stack Multi-User Task Manager</div>
+          <p class="project-desc">
+            A robust task-tracking system built to transition away from static frontends 
+            into dynamic server-driven environments. Features secure registration, hashed 
+            password authentication, and strict row-level data isolation using relational 
+            SQL Foreign Keys.
+          </p>
+          <div class="project-links">
+          <a href="https://django-task-manager-w0a8.onrender.com" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/pseal/django-task-manager" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>      
     </div>
 
     <!-- BAFIN – Coming Soon -->
@@ -1347,7 +1372,10 @@ footer {
       <p>
         I am a <strong>web development enthusiast</strong> who enjoys creating clean, practical,
         and user-friendly digital experiences. I work mainly with HTML and CSS for front-end
-        development and use SQL and Python for data handling, automation, and improving workflows.
+        development and use SQL and Python for data handling, automation, and improving workflows. 
+        Recently expanded my frontend expertise into true full-stack architecture, building 
+        secure Python/Django systems backed by relational SQL databases and deploying persistent 
+        cloud environments.
       </p>
       <p>
         I like turning ideas and complex requirements into simple, functional solutions,

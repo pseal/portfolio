@@ -296,6 +296,7 @@ section {
 .thumb-coming   { background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); }
 .thumb-quiz     { background: linear-gradient(135deg, #0d1f0d 0%, #1a5c3a 100%); }
 .thumb-full     { background: linear-gradient(135deg, #0a1f0a 0%, #1a4d1a 100%); }
+.thumb-asso     { background: linear-gradient(135deg, #1a0a2e 0%, #2d1466 50%, #1a0a4d 100%); }
 .thumb-neon     { background: linear-gradient(135deg, #0d0020 0%, #1a0040 50%, #0d0030 100%); }
 .thumb-travel   { background: linear-gradient(135deg, #001a2e 0%, #003d6b 60%, #005f8a 100%); }
 
@@ -1403,21 +1404,81 @@ footer {
       </div>      
     </div>
 
-    <!-- Association – Coming Soon -->
+        <!-- Association in Finland Website -->
     <div class="project-card fade-up">
-      <div class="project-thumb thumb-coming">🔒</div>
+      <a href="https://asso-website-1.onrender.com/" target="_blank" class="proj-link">
+      <div class="project-thumb thumb-asso">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="assoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a0a2e"/>
+              <stop offset="100%" stop-color="#2d1466"/>
+            </linearGradient>
+          </defs>
+          <rect width="120" height="120" fill="url(#assoGrad)"/>
+
+          <!-- Finnish flag subtle background -->
+          <rect x="0"  y="52" width="120" height="16" fill="rgba(0,56,168,0.15)"/>
+          <rect x="34" y="0"  width="16"  height="120" fill="rgba(0,56,168,0.15)"/>
+
+          <!-- Building / community icon -->
+          <!-- Main building -->
+          <rect x="30" y="42" width="60" height="48" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(200,160,255,0.4)" stroke-width="1"/>
+          <!-- Roof / pediment -->
+          <polygon points="25,42 60,18 95,42" fill="rgba(255,255,255,0.1)" stroke="rgba(200,160,255,0.5)" stroke-width="1"/>
+          <!-- Columns -->
+          <rect x="36" y="42" width="5" height="48" fill="rgba(255,255,255,0.12)"/>
+          <rect x="48" y="42" width="5" height="48" fill="rgba(255,255,255,0.12)"/>
+          <rect x="67" y="42" width="5" height="48" fill="rgba(255,255,255,0.12)"/>
+          <rect x="79" y="42" width="5" height="48" fill="rgba(255,255,255,0.12)"/>
+          <!-- Door -->
+          <rect x="51" y="68" width="18" height="22" rx="2" fill="rgba(180,120,255,0.3)" stroke="rgba(200,160,255,0.5)" stroke-width="1"/>
+          <circle cx="67" cy="80" r="1.5" fill="rgba(255,255,255,0.6)"/>
+          <!-- Windows -->
+          <rect x="35" y="52" width="10" height="8" rx="1" fill="rgba(180,120,255,0.25)" stroke="rgba(200,160,255,0.3)" stroke-width="0.5"/>
+          <rect x="75" y="52" width="10" height="8" rx="1" fill="rgba(180,120,255,0.25)" stroke="rgba(200,160,255,0.3)" stroke-width="0.5"/>
+          <!-- People / community dots -->
+          <circle cx="38" cy="100" r="4" fill="rgba(200,160,255,0.7)"/>
+          <circle cx="50" cy="100" r="4" fill="rgba(200,160,255,0.55)"/>
+          <circle cx="70" cy="100" r="4" fill="rgba(200,160,255,0.55)"/>
+          <circle cx="82" cy="100" r="4" fill="rgba(200,160,255,0.7)"/>
+          <!-- Connecting line between people -->
+          <line x1="42" y1="100" x2="46" y2="100" stroke="rgba(200,160,255,0.35)" stroke-width="1"/>
+          <line x1="54" y1="100" x2="66" y2="100" stroke="rgba(200,160,255,0.35)" stroke-width="1" stroke-dasharray="2 2"/>
+          <line x1="74" y1="100" x2="78" y2="100" stroke="rgba(200,160,255,0.35)" stroke-width="1"/>
+          <!-- Star / flag on top -->
+          <text x="60" y="16" font-size="9" text-anchor="middle" fill="rgba(255,220,100,0.9)">★</text>
+          <!-- Badge -->
+          <rect x="15" y="6" width="90" height="10" rx="4" fill="rgba(0,0,0,0.35)"/>
+          <text x="60" y="14" font-family="monospace" font-size="6" font-weight="bold"
+                fill="rgba(200,160,255,0.9)" text-anchor="middle" letter-spacing="1">ASSOCIATION IN FINLAND</text>
+        </svg>
+      </div>
+      </a>
       <div class="project-body">
         <div class="project-tags">
-          <span class="tag">In Progress</span>
+          <span class="tag">Django</span>
+          <span class="tag">Python</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Render</span>
         </div>
-        <div class="project-name">Association</div>
+        <div class="project-name">Association in Finland</div>
         <p class="project-desc">
-          A community web project for a Finnish association — currently in development.
-          Built to deepen skills in structured layout, content management, and
-          real-world client requirements.
+          A community association website for people living in Finland — built with
+          Django and deployed on Render. Features structured content pages, community
+          information, and a clean multi-section layout designed for a real-world
+          organisational audience.
         </p>
         <div class="project-links">
-          <span class="coming-soon">⏳ Coming Soon</span>
+          <a href="https://asso-website-1.onrender.com/" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/pseal/asso-website" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
         </div>
       </div>
     </div>

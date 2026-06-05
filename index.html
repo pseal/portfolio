@@ -299,6 +299,7 @@ section {
 .thumb-asso     { background: linear-gradient(135deg, #1a0a2e 0%, #2d1466 50%, #1a0a4d 100%); }
 .thumb-neon     { background: linear-gradient(135deg, #0d0020 0%, #1a0040 50%, #0d0030 100%); }
 .thumb-travel   { background: linear-gradient(135deg, #001a2e 0%, #003d6b 60%, #005f8a 100%); }
+.thumb-navx     { background: linear-gradient(135deg, #0a0e1a 0%, #0d2137 50%, #0a1628 100%); }
 
 .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 
@@ -1481,6 +1482,78 @@ footer {
         </div>
       </div>
     </div>
+
+    <!-- NavX GPS Navigation -->
+<div class="project-card fade-up">
+  <div class="project-thumb thumb-navx">
+    <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1a3a5c" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#0a0e1a" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="120" height="120" fill="#0a0e1a"/>
+      <circle cx="60" cy="60" r="52" fill="url(#mapGlow)"/>
+      <!-- Map grid lines -->
+      <line x1="0"   y1="40" x2="120" y2="40" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <line x1="0"   y1="60" x2="120" y2="60" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <line x1="0"   y1="80" x2="120" y2="80" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <line x1="30"  y1="0"  x2="30"  y2="120" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <line x1="60"  y1="0"  x2="60"  y2="120" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <line x1="90"  y1="0"  x2="90"  y2="120" stroke="rgba(56,189,248,0.1)" stroke-width="1"/>
+      <!-- Route path -->
+      <path d="M25 90 Q35 70 50 65 Q65 60 75 45 Q82 35 90 28"
+            stroke="#38bdf8" stroke-width="2.5" fill="none"
+            stroke-linecap="round" stroke-linejoin="round"
+            stroke-dasharray="4 2"/>
+      <!-- Route glow -->
+      <path d="M25 90 Q35 70 50 65 Q65 60 75 45 Q82 35 90 28"
+            stroke="rgba(56,189,248,0.2)" stroke-width="6" fill="none"
+            stroke-linecap="round"/>
+      <!-- Start point -->
+      <circle cx="25" cy="90" r="5" fill="#22c55e"/>
+      <circle cx="25" cy="90" r="9" fill="none" stroke="rgba(34,197,94,0.4)" stroke-width="1.5"/>
+      <!-- End pin -->
+      <path d="M90 28 C90 20 82 14 90 10 C98 14 90 20 90 28Z"
+            fill="#ef4444"/>
+      <circle cx="90" cy="18" r="4" fill="#fca5a5"/>
+      <!-- Navigation arrow (current position) -->
+      <g transform="translate(58,58) rotate(-35)">
+        <polygon points="0,-10 6,6 0,2 -6,6" fill="#38bdf8"
+                 filter="drop-shadow(0 0 4px rgba(56,189,248,0.8))"/>
+      </g>
+      <!-- Mode icons row -->
+      <rect x="10" y="100" width="100" height="14" rx="4" fill="rgba(0,0,0,0.4)"/>
+      <text x="30"  y="110" font-size="8" text-anchor="middle">🚗</text>
+      <text x="60"  y="110" font-size="8" text-anchor="middle">🚶</text>
+      <text x="90"  y="110" font-size="8" text-anchor="middle">🚲</text>
+    </svg>
+  </div>
+  <div class="project-body">
+    <div class="project-tags">
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Maps API</span>
+      <span class="tag">GPS</span>
+      <span class="tag">Vercel</span>
+    </div>
+    <div class="project-name">NavX — GPS Navigation</div>
+    <p class="project-desc">
+      A real-time GPS navigation app with live routing for driving, walking,
+      and cycling. Features turn-by-turn directions, live location tracking,
+      and a clean dark-mode map interface — built entirely on the frontend
+      and deployed on Vercel.
+    </p>
+    <div class="project-links">
+      <a href="https://navx-gps-app-frontend.vercel.app/" target="_blank" class="proj-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Live Demo
+      </a>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>

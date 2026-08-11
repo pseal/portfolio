@@ -301,6 +301,7 @@ section {
 .thumb-travel   { background: linear-gradient(135deg, #001a2e 0%, #003d6b 60%, #005f8a 100%); }
 .thumb-navx     { background: linear-gradient(135deg, #0a0e1a 0%, #0d2137 50%, #0a1628 100%); }
 .thumb-kaikki { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%); }
+.thumb-calc   { background: linear-gradient(135deg, #050814 0%, #131a35 100%); }
 
 .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 
@@ -1642,6 +1643,64 @@ footer {
     </div>
   </div>
 </div>
+
+<!-- Advanced Calculator -->
+    <div class="project-card fade-up">
+      <a href="https://aio-calculator-roan.vercel.app/" target="_blank" class="thumb-link">
+      <div class="project-thumb thumb-calc">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="calcGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#050814"/>
+              <stop offset="100%" stop-color="#131a35"/>
+            </linearGradient>
+          </defs>
+          <rect width="120" height="120" fill="url(#calcGrad)"/>
+
+          <!-- HUD corner brackets (matches the app's own icon) -->
+          <path d="M20 34 L20 20 L34 20" stroke="#4cd9ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          <path d="M100 34 L100 20 L86 20" stroke="#4cd9ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          <path d="M20 86 L20 100 L34 100" stroke="#4cd9ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          <path d="M100 86 L100 100 L86 100" stroke="#4cd9ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+          <!-- glowing display with "=" readout -->
+          <rect x="38" y="50" width="44" height="26" rx="4" fill="rgba(76,217,255,0.08)" stroke="#4cd9ff" stroke-width="1.5"/>
+          <rect x="48" y="59" width="24" height="3" rx="1.5" fill="#4cd9ff"/>
+          <rect x="48" y="66" width="24" height="3" rx="1.5" fill="#4cd9ff"/>
+
+          <!-- wordmark badge -->
+          <rect x="6" y="6" width="108" height="10" rx="4" fill="rgba(0,0,0,0.4)"/>
+          <text x="60" y="14" font-family="monospace" font-size="5.5" font-weight="bold" fill="#4cd9ff" text-anchor="middle" letter-spacing="1">ADVANCED CALCULATOR</text>
+        </svg>
+      </div>
+      </a>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">PWA</span>
+          <span class="tag">Canvas API</span>
+          <span class="tag">Glassmorphism</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="project-name">Advanced Calculator</div>
+        <p class="project-desc">
+          A 20-tool calculator suite — Scientific, Programmer, Matrix, Graphing, Equation Solver,
+          Financial, and more — wrapped in a custom glassmorphism HUD interface with live theming.
+          Built entirely in vanilla JavaScript with zero frameworks, and fully installable offline
+          as a Progressive Web App via a custom service worker.
+        </p>
+        <div class="project-links">
+          <a href="https://aio-calculator-roan.vercel.app/" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/pseal/AIO-calculator" target="_blank" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>

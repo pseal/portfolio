@@ -632,27 +632,6 @@ footer {
 .mobile-menu a:last-child { border-bottom: none; }
 .mobile-menu a:hover { color: var(--accent); }
 
-/* ── SCROLL ARROW (bounce down) ── */
-.scroll-arrow {
-  position: fixed; bottom: 36px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  text-decoration: none; z-index: 90;
-  animation: arrowBounce 2s ease-in-out infinite;
-  transition: opacity 0.4s;
-}
-.scroll-arrow.hidden { opacity: 0; pointer-events: none; }
-.scroll-arrow span {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted);
-}
-.scroll-arrow svg { color: var(--accent2); }
-@keyframes arrowBounce {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(10px); }
-}
-
 /* ── BACK TO TOP ── */
 #backTop {
   position: fixed; bottom: 28px; right: 24px; z-index: 200;
@@ -667,6 +646,21 @@ footer {
 }
 #backTop.visible { opacity: 1; pointer-events: all; }
 #backTop:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,58,92,0.4); }
+
+/* ── SCROLL DOWN (mirrors back-to-top; visible while at the top) ── */
+#scrollDown {
+  position: fixed; bottom: 28px; right: 24px; z-index: 200;
+  width: 44px; height: 44px;
+  background: var(--accent); color: white;
+  border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(26,58,92,0.3);
+  opacity: 1; pointer-events: all;
+  transition: opacity 0.3s, transform 0.2s;
+}
+#scrollDown.hidden { opacity: 0; pointer-events: none; }
+#scrollDown:hover { transform: translateY(3px); box-shadow: 0 8px 24px rgba(26,58,92,0.4); }
 
 /* ── ANIMATIONS ── */
 .fade-up {
@@ -813,23 +807,14 @@ footer {
       </div>
     </div>
   </div>
-
-  <!-- Scroll down arrow -->
-  <a class="scroll-arrow" href="#projects" aria-label="Scroll to projects">
-    <span>Scroll</span>
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  </a>
 </header>
 
-<!-- Scroll down arrow (fixed, hides after scrolling past hero) -->
-<a class="scroll-arrow" id="scrollArrow" href="#projects" aria-label="Scroll to projects">
-  <span>Scroll</span>
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<!-- Scroll down (round button, visible at top, hides after scrolling past hero) -->
+<button id="scrollDown" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to projects">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="6 9 12 15 18 9"></polyline>
   </svg>
-</a>
+</button>
 
 <!-- Back to top -->
 <button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
@@ -1871,13 +1856,13 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-// ── BACK TO TOP + SCROLL ARROW visibility ────────────────────────────────
+// ── BACK TO TOP + SCROLL DOWN visibility (mirror images of each other) ───
 const backBtn    = document.getElementById("backTop");
-const scrollArrow = document.getElementById("scrollArrow");
+const scrollDown = document.getElementById("scrollDown");
 window.addEventListener("scroll", () => {
   const pastHero = window.scrollY > (window.innerHeight * 0.6);
   backBtn.classList.toggle("visible", pastHero);
-  if (scrollArrow) scrollArrow.classList.toggle("hidden", pastHero);
+  if (scrollDown) scrollDown.classList.toggle("hidden", pastHero);
 });
 
 // ── HAMBURGER menu ───────────────────────────────────────────────────────
